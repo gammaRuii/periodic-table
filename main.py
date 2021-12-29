@@ -40,7 +40,10 @@ with open("p.json") as p:
             color = colors['pink']
         else:
             color = colors['blue']
-        return color
+        
+        normalColor = (color[0]/255, color[1]/255, color[2]/255, color[3]/255)
+        return normalColor
+
 
 class Scrolling(ScrollView):
     pass
