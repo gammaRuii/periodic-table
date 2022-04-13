@@ -40,80 +40,94 @@ with open("p.json") as p:
             color = colors['pink']
         else:
             color = colors['blue']
-        
-        normalColor = (color[0]/255, color[1]/255, color[2]/255, color[3]/255)
+        normalColor = (color[0]/255, color[1]/255, color[2]/255)
         return normalColor
 
+button_size = dp(103)
 
 class Scrolling(ScrollView):
     pass
+
+class Description(GridLayout):
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+        with open("p.json") as p:
+            e = p.read()
+            el = json.loads(e)
+            elements = el['elements']
+            self.cols = 2
+
+# def CreateButton(number):
+#     class ElementButton(BoxLayout)
 
 class MainBody(GridLayout):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
         self.cols = 18
-        self.rows = 7
         self.orientation = "lr-tb"
-        button_size = dp(103)
         with open("p.json") as p:
             e = p.read()
             el = json.loads(e)
             elements = el['elements']
-            b = Button(text = "H", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(0), color = (0,0,0))
-            print(b.background_color)
+            b = Button(text = "H", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(0))
             self.add_widget(b)
             for i in range(16):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
-            b = Button(text = "He", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(1), color = (0,0,0))
-            print(b.background_color)
+            b = Button(text = "He", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(1))
             self.add_widget(b)
             for i in range(2,4):
-                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i), color = (0,0,0))
-                print(b.background_color)
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(4,10):
-                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i), color = (0,0,0))
-                print(b.background_color)
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 self.add_widget(b)
             for i in range(10,12):
-                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i), color = (0,0,0))
-                print(b.background_color)
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(12,18):
-                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i), color = (0,0,0))
-                print(b.background_color)
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 self.add_widget(b)
             for i in range(18,56):
-                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i), color = (0,0,0))
-                print(b.background_color)
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 self.add_widget(b)
-            b = Button(text = "Lanthanides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(57), color = (0,0,0))
-            print(b.background_color)
+            b = Button(text = "Lanthanides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(57))
             self.add_widget(b)
             for i in range(71,88):
-                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i), color = (0,0,0))
-                print(b.background_color)
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 self.add_widget(b)
-            b = Button(text = "Actinides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(89), color = (0,0,0))
-            print(b.background_color)
+            b = Button(text = "Actinides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(89))
             self.add_widget(b)
             for i in range(103,118):
-                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i), color = (0,0,0))
-                print(b.background_color)
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 self.add_widget(b)
+            for i in range(18):
+                l = Label(text = "", size_hint = (None,None), size = (button_size, dp(42)))
+                self.add_widget(l)
+            for i in range(2):
+                l = Label(text = "", size_hint = (None,None), size = (button_size, button_size))
+                self.add_widget(l)
+            for i in range(56,71):
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                self.add_widget(b)
+            l = Label(text="", size_hint=(None, None), size=(button_size, button_size))
+            self.add_widget(l)
+            for i in range(2):
+                l = Label(text = "", size_hint = (None,None), size = (button_size, button_size))
+                self.add_widget(l)
+            for i in range(88,103):
+                b = Button(text="{}".format(elements[i]["symbol"]), size_hint=(None, None), size=(button_size, button_size), background_color=determineColor(i))
+                self.add_widget(b)
+
 
 class PeriodicTableApp(App):
     pass
-
-
-
 
 app = PeriodicTableApp()
 app.run()
