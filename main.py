@@ -11,6 +11,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.widget import Widget
+from kivy.uix.screenmanager import ScreenManager, Screen
 from colordict import *
 
 with open("p.json") as p:
@@ -65,47 +66,62 @@ class MainBody(GridLayout):
         super().__init__(**kwargs)
         self.cols = 18
         self.orientation = "lr-tb"
+        def callback(instance):
+            print('the button {} is being pressed'.format(instance.text))
         with open("p.json") as p:
             e = p.read()
             el = json.loads(e)
             elements = el['elements']
             b = Button(text = "[size=15]1[/size]\n\n[size=25]H[/size]\n[size=10]Hydrogen[/size]\n[size=10]1.01[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(0))
+            b.bind(on_press=callback)
             self.add_widget(b)
             for i in range(16):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             b = Button(text = "[size=15]2[/size]\n\n[size=25]He[/size]\n[size=10]Helium[/size]\n[size=10]4.003[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(1))
+            b.bind(on_press=callback)
             self.add_widget(b)
             for i in range(2,4):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(4,10):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
             for i in range(10,12):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(12,18):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
             for i in range(18,56):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
             b = Button(text = "Lanthanides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(57))
+            b.bind(on_press=callback)
+            # open up menu for lanthanides
             self.add_widget(b)
             for i in range(71,88):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
             b = Button(text = "Actinides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(89))
+            b.bind(on_press=callback)
+            # open up menu for actinides
             self.add_widget(b)
             for i in range(103,118):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
             for i in range(18):
                 l = Label(text = "", size_hint = (None,None), size = (button_size, dp(42)))
@@ -115,6 +131,7 @@ class MainBody(GridLayout):
                 self.add_widget(l)
             for i in range(56,71):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
             l = Label(text="", size_hint=(None, None), size=(button_size, button_size))
             self.add_widget(l)
@@ -123,6 +140,7 @@ class MainBody(GridLayout):
                 self.add_widget(l)
             for i in range(88,103):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b.bind(on_press=callback)
                 self.add_widget(b)
 
 
