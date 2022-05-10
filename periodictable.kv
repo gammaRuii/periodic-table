@@ -1,14 +1,15 @@
-Scrolling:
+Manager:
+    MainScreen:
+    ElScreen:
 
-<Scrolling>:
+<MainScreen>:
     MainBody:
-        size_hint: None, None
-        height: self.minimum_height
-        width: self.minimum_width
 
-
-<MainBody>:
-
-<Padding>:
-
-<Series>:
+<ElScreen>:
+    name: "element"
+    BoxLayout:
+        Button:
+            text: 'back'
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'main'
