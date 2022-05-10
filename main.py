@@ -1,6 +1,8 @@
 import kivy
 import kivy.app
 import json
+
+from kivy.lang import Builder
 from kivy.uix.label import Label
 from kivy.app import App
 from kivy.metrics import dp
@@ -12,8 +14,10 @@ from kivy.uix.scrollview import ScrollView
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.widget import Widget
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.bubble import Bubble, BubbleButton
 from colordict import *
 
+sm = ScreenManager()
 with open("p.json") as p:
     e = p.read()
     el = json.loads(e)
@@ -46,28 +50,16 @@ with open("p.json") as p:
 
 button_size = dp(103)
 
-class Scrolling(ScrollView):
-    pass
-
-class Description(GridLayout):
-    def __init__(self,**kwargs):
-        super().__init__(**kwargs)
-        with open("p.json") as p:
-            e = p.read()
-            el = json.loads(e)
-            elements = el['elements']
-            self.cols = 2
-
-# def CreateButton(number):
-#     class ElementButton(BoxLayout)
+def callback(number, **instance):
+    print (instance, number)
+    sm.current = "element"
+# Builder.load_file("periodictable.kv")
 
 class MainBody(GridLayout):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
         self.cols = 18
         self.orientation = "lr-tb"
-        def callback(instance):
-            print('the button {} is being pressed'.format(instance.text))
         with open("p.json") as p:
             e = p.read()
             el = json.loads(e)
@@ -142,6 +134,38 @@ class MainBody(GridLayout):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press=callback)
                 self.add_widget(b)
+
+class Element(BoxLayout):
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+        self.cols = 2
+        with open("p.json") as p:
+            e = p.read()
+            el = json.loads(e)
+            elements = el['elements']
+
+class Manager(ScreenManager):
+    pass
+
+class ElScreen(Screen):
+    # def __init__(self, **kwargs):
+    #     super().__init__(**kwargs)
+    #     box = BoxLayout()
+    #     self.add_widget(box)
+    #     box.add_widget(Button(text = "hi"))
+    pass
+
+class MainScreen(Screen):
+    # def __init__(self, **kwargs):
+    #     super().__init__(**kwargs)
+    #     main = MainBody()
+    #     self.add_widget(main)
+    pass
+
+# sm.add_widget(MainScreen(name = "main"))
+# sm.add_widget(ElScreen(name = "element"))
+# sm.current = "main"
+
 
 
 class PeriodicTableApp(App):
