@@ -1,0 +1,34 @@
+WindowManager:
+    MainScreen:
+    ElScreen:
+
+<MainScreen>:
+    name: "elements"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        Button:
+            text: "to element"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "element"
+
+<ElScreen>:
+    name: "element"
+
+    BoxLayout:
+        orientation: "vertical"
+        rows: 2
+
+        Button:
+            text: "h"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.manager.current = "elements"
+
+
+        Button:
+            text: "backs"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.manager.current = "elements"
