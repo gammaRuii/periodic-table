@@ -3,13 +3,51 @@ Manager:
     ElScreen:
 
 <MainScreen>:
+    name: "main"
     MainBody:
 
 <ElScreen>:
     name: "element"
-    BoxLayout:
-        Button:
-            text: 'back'
-            on_release:
-                root.manager.transition.direction = 'right'
-                root.manager.current = 'main'
+    ElementScroll:
+        ElementBox:
+            columns: 2
+            Button:
+                text: "Name"
+                id: namebutton1
+            Button:
+                id: namebutton2
+            Button:
+                text: "Number"
+                id: numbutton1
+            Button:
+                id: numbutton2
+            Button:
+                text: "Symbol"
+                id: symbutton1
+            Button:
+                id: symbutton2
+            Button:
+                text: "Category"
+                id: catbutton1
+            Button:
+                id: catbutton2
+            Button:
+                text: "Average atomic mass"
+                id: aaabutton1
+            Button:
+                id: aaabutton2
+            Button:
+                text: "Electron configuration"
+                id: econfigbutton1
+            Button:
+                id: econfigbutton2
+            Button:
+                text: "Overview"
+                id: sumbutton1
+            Button:
+                id: sumbutton2
+            Button:
+                text: "back"
+                on_release:
+                    app.root.transition.direction = "right"
+                    app.root.current = "main"

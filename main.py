@@ -6,18 +6,16 @@ from kivy.lang import Builder
 from kivy.uix.label import Label
 from kivy.app import App
 from kivy.metrics import dp
-from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.scrollview import ScrollView
-from kivy.uix.stacklayout import StackLayout
 from kivy.uix.widget import Widget
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.bubble import Bubble, BubbleButton
 from colordict import *
 
 sm = ScreenManager()
+
 with open("p.json") as p:
     e = p.read()
     el = json.loads(e)
@@ -50,9 +48,7 @@ with open("p.json") as p:
 
 button_size = dp(103)
 
-def callback(number, **instance):
-    print (instance, number)
-    sm.current = "element"
+
 # Builder.load_file("periodictable.kv")
 
 class MainBody(GridLayout):
@@ -135,15 +131,6 @@ class MainBody(GridLayout):
                 b.bind(on_press=callback)
                 self.add_widget(b)
 
-class Element(BoxLayout):
-    def __init__(self,**kwargs):
-        super().__init__(**kwargs)
-        self.cols = 2
-        with open("p.json") as p:
-            e = p.read()
-            el = json.loads(e)
-            elements = el['elements']
-
 class Manager(ScreenManager):
     pass
 
@@ -166,10 +153,43 @@ class MainScreen(Screen):
 # sm.add_widget(ElScreen(name = "element"))
 # sm.current = "main"
 
+class ElementScroll(ScrollView):
+    pass
 
+class ElementBox(BoxLayout):
+    pass
 
 class PeriodicTableApp(App):
     pass
 
 app = PeriodicTableApp()
+def main(instance):
+    # delete the widgets on second screen
+
+
+    app.root.current = "main"
+
+def callback(instance):
+    app.root.transition.direction = "left"
+    app.root.current = "element"
+    eltext = instance.text
+    eltext = eltext.replace("[size=15]","")
+    eltext = eltext.replace("[size=25]", "")
+    eltext = eltext.replace("[size=10]", "")
+    element = eltext.replace("[/size]","")
+    # print(element)
+    elnum = int(element[:2])
+    with open("p.json") as p:
+        e = p.read()
+        el = json.loads(e)
+        elements = el['elements']
+        app.root.get_screen("element").ids["symbutton2"].text = "".format(elements[elnum]["symbol"])
+        app.root.get_screen("element").ids["namebutton2"].text = "".format(elements[elnum]["name"])
+        app.root.get_screen("element").ids["catbutton2"].text = "".format(elements[elnum]["category"])
+        app.root.get_screen("element").ids["numbutton2"].text = element[:2]
+        app.root.get_screen("element").ids["aaabutton2"].text = "".format(elements[elnum]["atomic_mass"])
+        app.root.get_screen("element").ids["econfigbutton2"].text = "".format(elements[elnum]["electron_configuration_semantic"])
+        app.root.get_screen("element").ids["sumbutton2"].text = "".format(elements[elnum]["summary"])
+
+
 app.run()
