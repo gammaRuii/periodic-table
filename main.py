@@ -1,7 +1,7 @@
 import kivy
 import kivy.app
 import json
-
+import textwrap
 from kivy.lang import Builder
 from kivy.uix.label import Label
 from kivy.app import App
@@ -156,7 +156,7 @@ class MainScreen(Screen):
 class ElementScroll(ScrollView):
     pass
 
-class ElementBox(BoxLayout):
+class ElementGrid(GridLayout):
     pass
 
 class PeriodicTableApp(App):
@@ -178,18 +178,23 @@ def callback(instance):
     eltext = eltext.replace("[size=10]", "")
     element = eltext.replace("[/size]","")
     # print(element)
-    elnum = int(element[:2])
+    elementNum = element.split('\n',1)[0]
+    if len(elementNum) == 3:
+        elnum = int(element[:3])-1
+    if len(elementNum) == 2:
+        elnum = int(element[:2])-1
     with open("p.json") as p:
         e = p.read()
         el = json.loads(e)
         elements = el['elements']
-        app.root.get_screen("element").ids["symbutton2"].text = "".format(elements[elnum]["symbol"])
-        app.root.get_screen("element").ids["namebutton2"].text = "".format(elements[elnum]["name"])
-        app.root.get_screen("element").ids["catbutton2"].text = "".format(elements[elnum]["category"])
+        app.root.get_screen("element").ids["symbutton2"].text = elements[elnum]["symbol"]
+        app.root.get_screen("element").ids["namebutton2"].text = elements[elnum]["name"]
+        app.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"]
         app.root.get_screen("element").ids["numbutton2"].text = element[:2]
-        app.root.get_screen("element").ids["aaabutton2"].text = "".format(elements[elnum]["atomic_mass"])
-        app.root.get_screen("element").ids["econfigbutton2"].text = "".format(elements[elnum]["electron_configuration_semantic"])
-        app.root.get_screen("element").ids["sumbutton2"].text = "".format(elements[elnum]["summary"])
+        app.root.get_screen("element").ids["aaabutton2"].text = str(float(elements[elnum]["atomic_mass"]))
+        app.root.get_screen("element").ids["econfigbutton2"].text = elements[elnum]["electron_configuration_semantic"]
+        app.root.get_screen("element").ids["sumbutton2"].multiline = True
+        app.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"])
 
 
 app.run()
