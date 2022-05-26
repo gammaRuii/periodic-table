@@ -131,70 +131,72 @@ class MainBody(GridLayout):
                 b.bind(on_press=callback)
                 self.add_widget(b)
 
+# screens
 class Manager(ScreenManager):
     pass
 
 class ElScreen(Screen):
-    # def __init__(self, **kwargs):
-    #     super().__init__(**kwargs)
-    #     box = BoxLayout()
-    #     self.add_widget(box)
-    #     box.add_widget(Button(text = "hi"))
     pass
 
 class MainScreen(Screen):
-    # def __init__(self, **kwargs):
-    #     super().__init__(**kwargs)
-    #     main = MainBody()
-    #     self.add_widget(main)
     pass
 
-# sm.add_widget(MainScreen(name = "main"))
-# sm.add_widget(ElScreen(name = "element"))
-# sm.current = "main"
-
-class ElementScroll(ScrollView):
+# lanthanide and actinide screen
+class SeriesScreen(Screen):
     pass
 
+# layout for element pop-up
 class ElementGrid(GridLayout):
     pass
 
+# layout for lanthanide and actinide series
+class SeriesBox(BoxLayout):
+    pass
 class PeriodicTableApp(App):
     pass
 
 app = PeriodicTableApp()
-def main(instance):
-    # delete the widgets on second screen
-
-
-    app.root.current = "main"
 
 def callback(instance):
     app.root.transition.direction = "left"
-    app.root.current = "element"
     eltext = instance.text
     eltext = eltext.replace("[size=15]","")
     eltext = eltext.replace("[size=25]", "")
     eltext = eltext.replace("[size=10]", "")
     element = eltext.replace("[/size]","")
-    # print(element)
-    elementNum = element.split('\n',1)[0]
-    if len(elementNum) == 3:
-        elnum = int(element[:3])-1
-    if len(elementNum) == 2:
-        elnum = int(element[:2])-1
+    print(element)
+    elementNum = element.split('\n', 1)[0]
+    print(elementNum)
     with open("p.json") as p:
         e = p.read()
         el = json.loads(e)
         elements = el['elements']
-        app.root.get_screen("element").ids["symbutton2"].text = elements[elnum]["symbol"]
-        app.root.get_screen("element").ids["namebutton2"].text = elements[elnum]["name"]
-        app.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"]
-        app.root.get_screen("element").ids["numbutton2"].text = element[:2]
-        app.root.get_screen("element").ids["aaabutton2"].text = str(float(elements[elnum]["atomic_mass"]))
-        app.root.get_screen("element").ids["econfigbutton2"].text = elements[elnum]["electron_configuration_semantic"]
-        app.root.get_screen("element").ids["sumbutton2"].multiline = True
-        app.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"])
-
+        try:
+            elnum = int(elementNum[:3])-1
+            app.root.get_screen("element").ids["symbutton2"].text = elements[elnum]["symbol"]
+            app.root.get_screen("element").ids["symbutton2"].background_color = determineColor(elnum)
+            app.root.get_screen("element").ids["namebutton2"].text = elements[elnum]["name"]
+            app.root.get_screen("element").ids["namebutton2"].background_color = determineColor(elnum)
+            app.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"]
+            app.root.get_screen("element").ids["catbutton2"].background_color = determineColor(elnum)
+            app.root.get_screen("element").ids["numbutton2"].text = str(elnum+1)
+            app.root.get_screen("element").ids["numbutton2"].background_color = determineColor(elnum)
+            app.root.get_screen("element").ids["aaabutton2"].text = str(float(elements[elnum]["atomic_mass"]))
+            app.root.get_screen("element").ids["aaabutton2"].background_color = determineColor(elnum)
+            app.root.get_screen("element").ids["econfigbutton2"].text = elements[elnum]["electron_configuration_semantic"]
+            app.root.get_screen("element").ids["econfigbutton2"].background_color = determineColor(elnum)
+            app.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"])
+            app.root.get_screen("element").ids["sumbutton2"].background_color = determineColor(elnum)
+            app.root.current = "element"
+        except ValueError:
+            if elementNum == "Lanthanides":
+                elnum = 56
+            if elementNum == "Actinides":
+                elnum = 88
+            for i in range(1,16):
+                app.root.get_screen("series").ids["b{}".format(i)].text = elements[elnum]["name"]
+                app.root.get_screen("series").ids["b{}".format(i)].background_color = determineColor(elnum)
+                elnum += 1
+            app.root.current = "series"
 
 app.run()
