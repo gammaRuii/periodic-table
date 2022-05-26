@@ -1,6 +1,7 @@
 Manager:
     MainScreen:
     ElScreen:
+    SeriesScreen:
 
 <MainScreen>:
     name: "main"
@@ -8,46 +9,105 @@ Manager:
 
 <ElScreen>:
     name: "element"
-    ElementScroll:
-        ElementBox:
-            columns: 2
-            Button:
-                text: "Name"
-                id: namebutton1
-            Button:
-                id: namebutton2
-            Button:
-                text: "Number"
-                id: numbutton1
-            Button:
-                id: numbutton2
-            Button:
-                text: "Symbol"
-                id: symbutton1
-            Button:
-                id: symbutton2
-            Button:
-                text: "Category"
-                id: catbutton1
-            Button:
-                id: catbutton2
-            Button:
-                text: "Average atomic mass"
-                id: aaabutton1
-            Button:
-                id: aaabutton2
-            Button:
-                text: "Electron configuration"
-                id: econfigbutton1
-            Button:
-                id: econfigbutton2
-            Button:
-                text: "Overview"
-                id: sumbutton1
-            Button:
-                id: sumbutton2
-            Button:
-                text: "back"
-                on_release:
-                    app.root.transition.direction = "right"
-                    app.root.current = "main"
+    ElementGrid:
+        cols: 2
+        Button:
+            text: "Name"
+            id: namebutton1
+        Button:
+            id: namebutton2
+        Button:
+            text: "Number"
+            id: numbutton1
+        Button:
+            id: numbutton2
+        Button:
+            text: "Symbol"
+            id: symbutton1
+        Button:
+            id: symbutton2
+        Button:
+            text: "Category"
+            id: catbutton1
+        Button:
+            id: catbutton2
+        Button:
+            text: "Average atomic mass"
+            id: aaabutton1
+        Button:
+            id: aaabutton2
+        Button:
+            text: "Electron configuration"
+            id: econfigbutton1
+        Button:
+            id: econfigbutton2
+        Button:
+            text: "Overview"
+            id: sumbutton1
+        Button:
+            id: sumbutton2
+            multiline: True
+            halign: "center"
+        Button:
+            text: "back"
+            on_release:
+                app.root.transition.direction = "right"
+                app.root.current = "main"
+
+<SeriesScreen>:
+    name: "series"
+    SeriesBox:
+        orientation: "vertical"
+        Button:
+            id: name
+            background_color: (1,0,0,0)
+        Button:
+            id: b1
+            on_press: callback
+        Button:
+            id: b2
+            on_press: callback
+        Button:
+            id: b3
+            on_press: callback
+        Button:
+            id: b4
+            on_press: callback
+        Button:
+            id: b5
+            on_press: callback
+        Button:
+            id: b6
+            on_press: callback
+        Button:
+            id: b7
+            on_press: callback
+        Button:
+            id: b8
+            on_press: callback
+        Button:
+            id: b9
+            on_press: callback
+        Button:
+            id: b10
+            on_press: callback
+        Button:
+            id: b11
+            on_press: callback
+        Button:
+            id: b12
+            on_press: callback
+        Button:
+            id: b13
+            on_press: callback
+        Button:
+            id: b14
+            on_press: callback
+        Button:
+            id: b15
+            on_press: callback
+        Button:
+            text: "back"
+            on_press:
+                app.root.transition.direction = "right"
+                app.root.current = "main"

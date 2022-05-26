@@ -152,6 +152,7 @@ class ElementGrid(GridLayout):
 # layout for lanthanide and actinide series
 class SeriesBox(BoxLayout):
     pass
+
 class PeriodicTableApp(App):
     pass
 
@@ -193,6 +194,7 @@ def callback(instance):
                 elnum = 56
             if elementNum == "Actinides":
                 elnum = 88
+            app.root.get_screen("series").ids["name"].text = elementNum
             for i in range(1,16):
                 app.root.get_screen("series").ids["b{}".format(i)].text = elements[elnum]["name"]
                 app.root.get_screen("series").ids["b{}".format(i)].background_color = determineColor(elnum)
