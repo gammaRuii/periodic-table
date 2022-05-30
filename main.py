@@ -48,9 +48,6 @@ with open("p.json") as p:
 
 button_size = dp(103)
 
-
-# Builder.load_file("periodictable.kv")
-
 class MainBody(GridLayout):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
@@ -161,9 +158,9 @@ class PeriodicTableApp(App):
         eltext = eltext.replace("[size=25]", "")
         eltext = eltext.replace("[size=10]", "")
         element = eltext.replace("[/size]", "")
-        print(element)
+        # print(element)
         elementNum = element.split('\n', 1)[0]
-        print(elementNum)
+        # print(elementNum)
         with open("p.json") as p:
             e = p.read()
             el = json.loads(e)
@@ -202,14 +199,14 @@ class PeriodicTableApp(App):
             }
             if elementNum in seriesDict.keys():
                 elementNum = str(seriesDict.get(elementNum))
-            print(elementNum)
+            # print(elementNum)
             try:
                 elnum = int(elementNum[:3]) - 1
                 self.root.get_screen("element").ids["symbutton2"].text = elements[elnum]["symbol"]
                 self.root.get_screen("element").ids["symbutton2"].background_color = determineColor(elnum)
                 self.root.get_screen("element").ids["namebutton2"].text = elements[elnum]["name"]
                 self.root.get_screen("element").ids["namebutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"]
+                self.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"].capitalize()
                 self.root.get_screen("element").ids["catbutton2"].background_color = determineColor(elnum)
                 self.root.get_screen("element").ids["numbutton2"].text = str(elnum + 1)
                 self.root.get_screen("element").ids["numbutton2"].background_color = determineColor(elnum)

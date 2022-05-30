@@ -17,44 +17,45 @@ Manager:
             cols: 2
             Button:
                 text: "Name"
-                id: namebutton1
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: namebutton2
             Button:
                 text: "Number"
-                id: numbutton1
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: numbutton2
             Button:
                 text: "Symbol"
-                id: symbutton1
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: symbutton2
             Button:
                 text: "Category"
-                id: catbutton1
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: catbutton2
             Button:
                 text: "Average atomic mass"
-                id: aaabutton1
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: aaabutton2
             Button:
                 text: "Electron configuration"
-                id: econfigbutton1
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: econfigbutton2
             Button:
                 text: "Overview"
-                id: sumbutton1
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: sumbutton2
                 multiline: True
                 halign: "center"
         Button:
-            text: "back"
+            text: "Back"
             size_hint: 1, 0.125
+            background_color: (255/255.0, 50/255.0, 50/255.0, 1)
             on_release:
                 app.root.transition.direction = "right"
                 app.root.current = "main"
@@ -112,7 +113,8 @@ Manager:
             id: b15
             on_press: app.callback(self)
         Button:
-            text: "back"
+            text: "Back"
+            background_color: (255/255.0, 50/255.0, 50/255.0, 1)
             on_press:
                 app.root.transition.direction = "right"
                 app.root.current = "main"
