@@ -61,55 +61,55 @@ class MainBody(GridLayout):
             el = json.loads(e)
             elements = el['elements']
             b = Button(text = "[size=15]1[/size]\n\n[size=25]H[/size]\n[size=10]Hydrogen[/size]\n[size=10]1.01[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(0))
-            b.bind(on_press=callback)
+            b.bind(on_press= app.callback)
             self.add_widget(b)
             for i in range(16):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             b = Button(text = "[size=15]2[/size]\n\n[size=25]He[/size]\n[size=10]Helium[/size]\n[size=10]4.003[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(1))
-            b.bind(on_press=callback)
+            b.bind(on_press= app.callback)
             self.add_widget(b)
             for i in range(2,4):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(4,10):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10,12):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(12,18):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(18,56):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
             b = Button(text = "Lanthanides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(57))
-            b.bind(on_press=callback)
+            b.bind(on_press= app.callback)
             # open up menu for lanthanides
             self.add_widget(b)
             for i in range(71,88):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
             b = Button(text = "Actinides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(89))
-            b.bind(on_press=callback)
+            b.bind(on_press= app.callback)
             # open up menu for actinides
             self.add_widget(b)
             for i in range(103,118):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(18):
                 l = Label(text = "", size_hint = (None,None), size = (button_size, dp(42)))
@@ -119,7 +119,7 @@ class MainBody(GridLayout):
                 self.add_widget(l)
             for i in range(56,71):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
             l = Label(text="", size_hint=(None, None), size=(button_size, button_size))
             self.add_widget(l)
@@ -128,7 +128,7 @@ class MainBody(GridLayout):
                 self.add_widget(l)
             for i in range(88,103):
                 b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
-                b.bind(on_press=callback)
+                b.bind(on_press= app.callback)
                 self.add_widget(b)
 
 # screens
@@ -154,51 +154,90 @@ class SeriesBox(BoxLayout):
     pass
 
 class PeriodicTableApp(App):
-    pass
+    def callback(self, instance):
+        self.root.transition.direction = "left"
+        eltext = instance.text
+        eltext = eltext.replace("[size=15]", "")
+        eltext = eltext.replace("[size=25]", "")
+        eltext = eltext.replace("[size=10]", "")
+        element = eltext.replace("[/size]", "")
+        print(element)
+        elementNum = element.split('\n', 1)[0]
+        print(elementNum)
+        with open("p.json") as p:
+            e = p.read()
+            el = json.loads(e)
+            elements = el['elements']
+            seriesDict = {
+                "Lanthanum": 57,
+                "Cerium": 58,
+                "Praseodymium": 59,
+                "Neodymium": 60,
+                "Promethium": 61,
+                "Samarium": 62,
+                "Europium": 63,
+                "Gadolinium": 64,
+                "Terbium": 65,
+                "Dysprosium": 66,
+                "Holmium": 67,
+                "Erbium": 68,
+                "Thulium": 69,
+                "Ytterbium": 70,
+                "Lutetium": 71,
+                "Actinium": 89,
+                "Thorium": 90,
+                "Protactinium": 91,
+                "Uranium": 92,
+                "Neptunium": 93,
+                "Plutonium": 94,
+                "Americium": 95,
+                "Curium": 96,
+                "Berkelium": 97,
+                "Californium": 98,
+                "Einsteinium": 99,
+                "Fermium": 100,
+                "Mendelevium": 101,
+                "Nobelium": 102,
+                "Lawrencium": 103
+            }
+            if elementNum in seriesDict.keys():
+                elementNum = str(seriesDict.get(elementNum))
+            print(elementNum)
+            try:
+                elnum = int(elementNum[:3]) - 1
+                self.root.get_screen("element").ids["symbutton2"].text = elements[elnum]["symbol"]
+                self.root.get_screen("element").ids["symbutton2"].background_color = determineColor(elnum)
+                self.root.get_screen("element").ids["namebutton2"].text = elements[elnum]["name"]
+                self.root.get_screen("element").ids["namebutton2"].background_color = determineColor(elnum)
+                self.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"]
+                self.root.get_screen("element").ids["catbutton2"].background_color = determineColor(elnum)
+                self.root.get_screen("element").ids["numbutton2"].text = str(elnum + 1)
+                self.root.get_screen("element").ids["numbutton2"].background_color = determineColor(elnum)
+                self.root.get_screen("element").ids["aaabutton2"].text = str(float(elements[elnum]["atomic_mass"]))
+                self.root.get_screen("element").ids["aaabutton2"].background_color = determineColor(elnum)
+                self.root.get_screen("element").ids["econfigbutton2"].text = elements[elnum][
+                    "electron_configuration_semantic"]
+                self.root.get_screen("element").ids["econfigbutton2"].background_color = determineColor(elnum)
+                self.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"])
+                self.root.get_screen("element").ids["sumbutton2"].background_color = determineColor(elnum)
+                self.root.current = "element"
+            except ValueError:
+                elnum = 1
+                if elementNum == "Lanthanides":
+                    elnum = 56
+                if elementNum == "Actinides":
+                    elnum = 88
+                else:
+                    pass
+                self.root.get_screen("series").ids["name"].text = elementNum
+                for i in range(1, 16):
+                    self.root.get_screen("series").ids["b{}".format(i)].text = elements[elnum]["name"]
+                    self.root.get_screen("series").ids["b{}".format(i)].background_color = determineColor(elnum)
+                    elnum += 1
+                self.root.current = "series"
 
 app = PeriodicTableApp()
 
-def callback(instance):
-    app.root.transition.direction = "left"
-    eltext = instance.text
-    eltext = eltext.replace("[size=15]","")
-    eltext = eltext.replace("[size=25]", "")
-    eltext = eltext.replace("[size=10]", "")
-    element = eltext.replace("[/size]","")
-    print(element)
-    elementNum = element.split('\n', 1)[0]
-    print(elementNum)
-    with open("p.json") as p:
-        e = p.read()
-        el = json.loads(e)
-        elements = el['elements']
-        try:
-            elnum = int(elementNum[:3])-1
-            app.root.get_screen("element").ids["symbutton2"].text = elements[elnum]["symbol"]
-            app.root.get_screen("element").ids["symbutton2"].background_color = determineColor(elnum)
-            app.root.get_screen("element").ids["namebutton2"].text = elements[elnum]["name"]
-            app.root.get_screen("element").ids["namebutton2"].background_color = determineColor(elnum)
-            app.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"]
-            app.root.get_screen("element").ids["catbutton2"].background_color = determineColor(elnum)
-            app.root.get_screen("element").ids["numbutton2"].text = str(elnum+1)
-            app.root.get_screen("element").ids["numbutton2"].background_color = determineColor(elnum)
-            app.root.get_screen("element").ids["aaabutton2"].text = str(float(elements[elnum]["atomic_mass"]))
-            app.root.get_screen("element").ids["aaabutton2"].background_color = determineColor(elnum)
-            app.root.get_screen("element").ids["econfigbutton2"].text = elements[elnum]["electron_configuration_semantic"]
-            app.root.get_screen("element").ids["econfigbutton2"].background_color = determineColor(elnum)
-            app.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"])
-            app.root.get_screen("element").ids["sumbutton2"].background_color = determineColor(elnum)
-            app.root.current = "element"
-        except ValueError:
-            if elementNum == "Lanthanides":
-                elnum = 56
-            if elementNum == "Actinides":
-                elnum = 88
-            app.root.get_screen("series").ids["name"].text = elementNum
-            for i in range(1,16):
-                app.root.get_screen("series").ids["b{}".format(i)].text = elements[elnum]["name"]
-                app.root.get_screen("series").ids["b{}".format(i)].background_color = determineColor(elnum)
-                elnum += 1
-            app.root.current = "series"
+
 
 app.run()
