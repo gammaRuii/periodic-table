@@ -21,24 +21,24 @@ with open("p.json") as p:
     el = json.loads(e)
     elements = el['elements']
     def determineColor(number):
-        colors = ColorDict()
+        colors = ColorDict(norm=255, mode='rgb', palettes_path="", is_grayscale=False, palettes='all')
         group = elements[number]["category"]
         if group == "alkali metal":
-            color = colors['truered']
+            color = colors['rustyred']
         elif group == "alkaline earth metal":
-            color = colors['fuchsiarose']
+            color = colors['fuchsia']
         elif group == "transition metal":
-            color = colors['aquasky']
+            color = colors['aqua']
         elif group == "metalloid":
             color = colors['green']
         elif group == "noble gas":
-            color = colors['livingcoral']
+            color = colors['coral']
         elif group == "post-transition metal":
             color = colors['orange']
         elif group == "halogen":
             color = colors['yellow']
         elif group == "lanthanide":
-            color = colors['greenery']
+            color = colors['lichen']
         elif group == "actinide":
             color = colors['pink']
         else:
@@ -204,7 +204,7 @@ class PeriodicTableApp(App):
                 elnum = int(elementNum[:3]) - 1
                 self.root.get_screen("element").ids["symbutton2"].text = elements[elnum]["symbol"]
                 self.root.get_screen("element").ids["symbutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["namebutton2"].text = elements[elnum]["name"]
+                self.root.get_screen("element").ids["namebutton2"].text = "[b]" + elements[elnum]["name"] + "[/b]"
                 self.root.get_screen("element").ids["namebutton2"].background_color = determineColor(elnum)
                 self.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"].capitalize()
                 self.root.get_screen("element").ids["catbutton2"].background_color = determineColor(elnum)

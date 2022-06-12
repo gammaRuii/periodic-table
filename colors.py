@@ -1,3 +1,4 @@
 from colordict import *
+import textwrap
 colors = ColorDict()
-print(colors)
+print(textwrap.fill(str(colors)))

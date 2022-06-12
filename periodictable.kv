@@ -18,15 +18,18 @@ Manager:
     BoxLayout:
         orientation: "vertical"
         cols: 1
+        Button:
+            id: namebutton2
+            size_hint: 1, 0.2
+            markup: True
+        Button:
+            id: sumbutton2
+            size_hint: 1, 0.3
         ElementGrid:
             cols: 2
+
             Button:
-                text: "Name"
-                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
-            Button:
-                id: namebutton2
-            Button:
-                text: "Number"
+                text: "Atomic number"
                 background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: numbutton2
@@ -50,13 +53,7 @@ Manager:
                 background_color: (0/255.0, 206/255.0, 235/255.0, 1)
             Button:
                 id: econfigbutton2
-            Button:
-                text: "Overview"
-                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
-            Button:
-                id: sumbutton2
-                multiline: True
-                halign: "center"
+
         Button:
             text: "Back"
             size_hint: 1, 0.125
