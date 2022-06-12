@@ -1,4 +1,3 @@
-#:import utils kivy.utils
 Manager:
     MainScreen:
     ElScreen:
@@ -6,7 +5,13 @@ Manager:
 
 <MainScreen>:
     name: "main"
-    MainBody:
+    ScrollView:
+        do_scroll_x: True
+        do_scroll_y: True
+        MainBody:
+            size_hint: None, None
+            width: 1854
+            height: 969
 
 <ElScreen>:
     name: "element"
