@@ -57,39 +57,39 @@ class MainBody(GridLayout):
             e = p.read()
             el = json.loads(e)
             elements = el['elements']
-            b = Button(text = "[size=15]1[/size]\n\n[size=25]H[/size]\n[size=10]Hydrogen[/size]\n[size=10]1.01[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(0))
+            b = Button(text = "[size=40]1[/size]\n\n[size=65]H[/size]\n[size=30]Hydrogen[/size]\n[size=30]1.01[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(0))
             b.bind(on_press= app.callback)
             self.add_widget(b)
             for i in range(16):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
-            b = Button(text = "[size=15]2[/size]\n\n[size=25]He[/size]\n[size=10]Helium[/size]\n[size=10]4.003[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(1))
+            b = Button(text = "[size=40]2[/size]\n\n[size=65]He[/size]\n[size=30]Helium[/size]\n[size=30]4.003[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(1))
             b.bind(on_press= app.callback)
             self.add_widget(b)
             for i in range(2,4):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(4,10):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10,12):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(12,18):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(18,56):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             b = Button(text = "Lanthanides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(57))
@@ -97,7 +97,7 @@ class MainBody(GridLayout):
             # open up menu for lanthanides
             self.add_widget(b)
             for i in range(71,88):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             b = Button(text = "Actinides", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(89))
@@ -105,7 +105,7 @@ class MainBody(GridLayout):
             # open up menu for actinides
             self.add_widget(b)
             for i in range(103,118):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(18):
@@ -115,7 +115,7 @@ class MainBody(GridLayout):
                 l = Label(text = "", size_hint = (None,None), size = (button_size, button_size))
                 self.add_widget(l)
             for i in range(56,71):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             l = Label(text="", size_hint=(None, None), size=(button_size, button_size))
@@ -124,7 +124,7 @@ class MainBody(GridLayout):
                 l = Label(text = "", size_hint = (None,None), size = (button_size, button_size))
                 self.add_widget(l)
             for i in range(88,103):
-                b = Button(text="[size=15]{}[/size]\n\n[size=25]{}[/size]\n[size=10]{}[/size]\n[size=10]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=40]{}[/size]\n\n[size=65]{}[/size]\n[size=30]{}[/size]\n[size=30]{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"],elements[i]["atomic_mass"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
 
@@ -154,9 +154,9 @@ class PeriodicTableApp(App):
     def callback(self, instance):
         self.root.transition.direction = "left"
         eltext = instance.text
-        eltext = eltext.replace("[size=15]", "")
-        eltext = eltext.replace("[size=25]", "")
-        eltext = eltext.replace("[size=10]", "")
+        eltext = eltext.replace("[size=40]", "")
+        eltext = eltext.replace("[size=65]", "")
+        eltext = eltext.replace("[size=30]", "")
         element = eltext.replace("[/size]", "")
         # print(element)
         elementNum = element.split('\n', 1)[0]
@@ -215,7 +215,7 @@ class PeriodicTableApp(App):
                 self.root.get_screen("element").ids["econfigbutton2"].text = elements[elnum][
                     "electron_configuration_semantic"]
                 self.root.get_screen("element").ids["econfigbutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"])
+                self.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"], width=50)
                 self.root.get_screen("element").ids["sumbutton2"].background_color = determineColor(elnum)
                 self.root.current = "element"
             except ValueError:
