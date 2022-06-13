@@ -156,7 +156,6 @@ class PeriodicTableApp(App):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
         self.textWidth = 50
-        self.rotateCount = 0
 
 
     def callback(self, instance):
@@ -241,15 +240,17 @@ class PeriodicTableApp(App):
                     elnum += 1
                 self.root.current = "series"
 
-    def redefWidth(self, instance, rotation=True):
-        if rotation:
-            self.rotateCount += 1
-            if self.rotateCount % 2 == 0:
-                instance.text = textwrap.fill(instance.text, width=50)
-            else:
-                instance.text = textwrap.fill(instance.text, width=90)
+    def redefWidth(self, instance):
 
-            instance.canvas.ask_update()
+        if app.root.size[0] > app.root.size[1]:
+            self.textWidth = 100
+
+        else:
+            self.textWidth = 50
+
+        instance.text = textwrap.fill(instance.text, self.textWidth)
+
+        instance.canvas.ask_update()
 
 app = PeriodicTableApp()
 
