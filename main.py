@@ -150,7 +150,15 @@ class ElementGrid(GridLayout):
 class SeriesBox(BoxLayout):
     pass
 
+
+
 class PeriodicTableApp(App):
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+        self.textWidth = 50
+        self.rotateCount = 0
+
+
     def callback(self, instance):
         self.root.transition.direction = "left"
         eltext = instance.text
@@ -215,7 +223,7 @@ class PeriodicTableApp(App):
                 self.root.get_screen("element").ids["econfigbutton2"].text = elements[elnum][
                     "electron_configuration_semantic"]
                 self.root.get_screen("element").ids["econfigbutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"], width=50)
+                self.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"], width=self.textWidth)
                 self.root.get_screen("element").ids["sumbutton2"].background_color = determineColor(elnum)
                 self.root.current = "element"
             except ValueError:
@@ -232,6 +240,16 @@ class PeriodicTableApp(App):
                     self.root.get_screen("series").ids["b{}".format(i)].background_color = determineColor(elnum)
                     elnum += 1
                 self.root.current = "series"
+
+    def redefWidth(self, instance, rotation=True):
+        if rotation:
+            self.rotateCount += 1
+            if self.rotateCount % 2 == 0:
+                instance.text = textwrap.fill(instance.text, width=50)
+            else:
+                instance.text = textwrap.fill(instance.text, width=90)
+
+            instance.canvas.ask_update()
 
 app = PeriodicTableApp()
 

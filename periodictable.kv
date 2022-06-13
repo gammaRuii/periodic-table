@@ -14,8 +14,10 @@ Manager:
             height: 2920
 <ElScreen>:
     name: "element"
+
     BoxLayout:
         orientation: "vertical"
+
         cols: 1
         Button:
             id: namebutton2
@@ -27,6 +29,7 @@ Manager:
             halign: "center"
             font_size: 40
             size_hint: 1, 0.4
+            on_size: app.redefWidth(self)
         ElementGrid:
             cols: 2
 
