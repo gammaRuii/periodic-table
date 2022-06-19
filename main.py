@@ -15,8 +15,9 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from colordict import *
 from kivy.core.window import Window
 
-sm = ScreenManager()
+light_gray = (211/255,211/255,211/255,1)
 
+sm = ScreenManager()
 
 with open("p.json") as p:
     e = p.read()
@@ -158,6 +159,24 @@ class PeriodicTableApp(App):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
         self.textWidth = 50
+
+    #def build(self):
+        Window.clearcolor = light_gray
+        Window.bind(on_keyboard=self.onBackBtn)
+        #return MainBody()
+
+    def onBackBtn(self, window, key, *args):
+        """ To be called whenever user presses Back/Esc Key """
+        # If user presses Back/Esc Key
+        if key == 27:
+            # Do whatever you need to do, like check if there are any
+            # screens that you can go back to.
+            # return True if you don't want to close app
+            # return False if you do
+            print("esc key pressed")
+            return True
+        return False
+
     def callback(self, instance):
         self.root.transition.direction = "left"
         eltext = instance.text
