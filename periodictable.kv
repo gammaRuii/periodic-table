@@ -5,13 +5,17 @@ Manager:
 
 <MainScreen>:
     name: "main"
-    ScrollView:
-        do_scroll_x: True
-        do_scroll_y: True
-        MainBody:
-            size_hint: None, None
-            width: 2869
-            height: 1569
+    BoxLayout:
+        orientation: "vertical"
+        cols: 1
+        ScrollView:
+            do_scroll_x: True
+            do_scroll_y: True
+            MainBody:
+                size_hint: None, None
+                width: 2869
+                height: 1569
+
 <ElScreen>:
     name: "element"
 

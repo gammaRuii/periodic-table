@@ -3,6 +3,7 @@ import kivy.app
 import json
 import textwrap
 from kivy.lang import Builder
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.label import Label
 from kivy.app import App
 from kivy.metrics import dp
@@ -14,8 +15,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.screenmanager import ScreenManager, Screen
 from colordict import *
 from kivy.core.window import Window
-
-light_gray = (211/255,211/255,211/255,1)
+from kivy.graphics import Color, Rectangle
 
 sm = ScreenManager()
 
@@ -46,7 +46,7 @@ with open("p.json") as p:
             color = colors['pink']
         else:
             color = colors['blue']
-        normalColor = (color[0]/255, color[1]/255, color[2]/255)
+        normalColor = (color[0]/255, color[1]/255, color[2]/255,1)
         return normalColor
 
 button_size = dp(53)
@@ -153,29 +153,24 @@ class ElementGrid(GridLayout):
 class SeriesBox(BoxLayout):
     pass
 
+light_gray = (70/255,70/255,70/255,1)
 
 
 class PeriodicTableApp(App):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
         self.textWidth = 50
-
-    #def build(self):
         Window.clearcolor = light_gray
         Window.bind(on_keyboard=self.onBackBtn)
-        #return MainBody()
 
     def onBackBtn(self, window, key, *args):
         """ To be called whenever user presses Back/Esc Key """
         # If user presses Back/Esc Key
         if key == 27:
-            # Do whatever you need to do, like check if there are any
-            # screens that you can go back to.
-            # return True if you don't want to close app
-            # return False if you do
-            print("esc key pressed")
+            if self.root.current == "main":
+                return False
+            self.root.current = "main"
             return True
-        return False
 
     def callback(self, instance):
         self.root.transition.direction = "left"
@@ -270,12 +265,6 @@ class PeriodicTableApp(App):
         instance.text = textwrap.fill(instance.text, self.textWidth)
 
         instance.canvas.ask_update()
-    def onBack(self, window, key, *args):
-        if key == 27:
-            if self.root.current == "element" or self.root.current == "series":
-                self.root.current = "main"
-            else:
-                return False
 
 app = PeriodicTableApp()
 
