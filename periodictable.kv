@@ -8,6 +8,12 @@ Manager:
     BoxLayout:
         orientation: "vertical"
         cols: 1
+        #size_hint: None,None
+        canvas.before:
+            Rectangle:
+                pos: self.center_x - 550, self.center_y - 550
+                size: (1100,1100)
+                source: "pt_back.png"
 
 
         ScrollView:

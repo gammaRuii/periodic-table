@@ -47,7 +47,7 @@ with open("p.json") as p:
             color = colors['pink']
         else:
             color = colors['blue']
-        normalColor = (color[0]/255, color[1]/255, color[2]/255,1)
+        normalColor = (color[0]/255, color[1]/255, color[2]/255, 0.85)
         return normalColor
 
 button_size = dp(53)
