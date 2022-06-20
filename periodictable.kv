@@ -8,6 +8,8 @@ Manager:
     BoxLayout:
         orientation: "vertical"
         cols: 1
+
+
         ScrollView:
             do_scroll_x: True
             do_scroll_y: True
@@ -15,6 +17,17 @@ Manager:
                 size_hint: None, None
                 width: 2869
                 height: 1569
+        ScrollView:
+            do_scroll_x: True
+            size_hint: 1, None
+            height: 200
+            on_size: app.redrawLegend(self)
+            Legend:
+                id: legend
+                size_hint: None, None
+                width: 1490
+                height: 200
+
 
 <ElScreen>:
     name: "element"

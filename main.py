@@ -16,6 +16,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from colordict import *
 from kivy.core.window import Window
 from kivy.graphics import Color, Rectangle
+from kivy.effects import scroll
 
 sm = ScreenManager()
 
@@ -153,6 +154,37 @@ class ElementGrid(GridLayout):
 class SeriesBox(BoxLayout):
     pass
 
+class Legend(FloatLayout):
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+
+        self.draw()
+
+    def draw(self):
+        self.block_space = 145 if Window.size[0] < Window.size[1] else 200
+        self.width = 1490 if Window.size[0] < Window.size[1] else 2040
+        self.init_buffer = 20 if Window.size[0] < Window.size[1] else 69
+        b = Button(text = "Alkali\nMetals", size_hint = (None, None), size = (125,125), pos = (self.init_buffer,37.5), background_color = determineColor(2), halign = "center", font_size = 27)
+        self.add_widget(b)
+        b = Button(text = "Alkaline\nEarth", size_hint = (None, None), size = (125,125), pos = (self.init_buffer + 1 *self.block_space,37.5), background_color = determineColor(3), halign = "center", font_size = 27)
+        self.add_widget(b)
+        b = Button(text="Transition\nMetal", size_hint=(None, None), size=(125, 125), pos =(20 + 2 *self.block_space,37.5), background_color=determineColor(20), halign="center", font_size=27)
+        self.add_widget(b)
+        b = Button(text="Metalloid", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 3 *self.block_space,37.5), background_color=determineColor(4), halign="center", font_size=27)
+        self.add_widget(b)
+        b = Button(text="Post\ntransition\nMetal", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 4 *self.block_space,37.5), background_color=determineColor(12), halign="center", font_size=27)
+        self.add_widget(b)
+        b = Button(text="Nonmetal", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 5 *self.block_space,37.5), background_color=determineColor(0), halign="center", font_size=27)
+        self.add_widget(b)
+        b = Button(text="Halogen", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 6 *self.block_space,37.5), background_color=determineColor(8), halign="center", font_size=27)
+        self.add_widget(b)
+        b = Button(text="Noble\ngas", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 7 *self.block_space,37.5), background_color=determineColor(1), halign="center", font_size=27)
+        self.add_widget(b)
+        b = Button(text="Lanthanide", size_hint=(None, None), size=(125, 125), pos=(20 + 8 *self.block_space,37.5), background_color=determineColor(56), halign="center", font_size=27)
+        self.add_widget(b)
+        b = Button(text="Actinide", size_hint=(None, None), size=(125, 125), pos=(20 + 9 *self.block_space,37.5), background_color=determineColor(88), halign="center", font_size=27)
+        self.add_widget(b)
+
 light_gray = (70/255,70/255,70/255,1)
 
 
@@ -253,6 +285,10 @@ class PeriodicTableApp(App):
                     self.root.get_screen("series").ids["b{}".format(i)].background_color = determineColor(elnum)
                     elnum += 1
                 self.root.current = "series"
+
+    def redrawLegend(self, instance):
+        self.root.get_screen("main").ids["legend"].clear_widgets()
+        self.root.get_screen("main").ids["legend"].draw()
 
     def redefWidth(self, instance):
 
