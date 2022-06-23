@@ -185,7 +185,7 @@ class Legend(FloatLayout):
         b = Button(text="Actinide", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 9 *self.block_space,37.5), background_color=determineColor(88), halign="center", font_size=27)
         self.add_widget(b)
 
-light_gray = (70/255,70/255,70/255,1)
+light_gray = (200/255,200/255,200/255,1)
 
 
 class PeriodicTableApp(App):
