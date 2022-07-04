@@ -30,17 +30,17 @@ with open("p.json") as p:
         if group == "alkali metal":
             color = colors['rustyred']
         elif group == "alkaline earth metal":
-            color = colors['fuchsia']
+            color = colors['pearlypurple']
         elif group == "transition metal":
-            color = colors['aqua']
+            color = colors['shadowblue']
         elif group == "metalloid":
-            color = colors['green']
+            color = colors['metallicseaweed']
         elif group == "noble gas":
             color = colors['coral']
         elif group == "post-transition metal":
-            color = colors['orange']
+            color = colors['aztecgold']
         elif group == "halogen":
-            color = colors['yellow']
+            color = colors['goldenrod']
         elif group == "lanthanide":
             color = colors['lichen']
         elif group == "actinide":
@@ -96,7 +96,7 @@ class MainBody(GridLayout):
                 b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
-            b = Button(text = "[size=22]Lanthanides[/size]", markup = True, size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(57))
+            b = Button(text = "[size=22]Lanthanides[/size]", markup = True, size_hint=(None, None), size=(button_size, button_size), background_normal = "", background_color = determineColor(57))
             b.bind(on_press= app.callback)
             # open up menu for lanthanides
             self.add_widget(b)
@@ -104,7 +104,7 @@ class MainBody(GridLayout):
                 b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
-            b = Button(text = "[size=22]Actinides[/size]", markup = True, size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(89))
+            b = Button(text = "[size=22]Actinides[/size]", markup = True, size_hint=(None, None), size=(button_size, button_size), background_normal = "", background_color = determineColor(89))
             b.bind(on_press= app.callback)
             # open up menu for actinides
             self.add_widget(b)
