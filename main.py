@@ -61,39 +61,39 @@ class MainBody(GridLayout):
             e = p.read()
             el = json.loads(e)
             elements = el['elements']
-            b = Button(text = "[size=30]1[/size]\n[size=50]H[/size][size=22]\nHydrogen[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(0))
+            b = Button(text = "[size=30]1[/size]\n[size=50]H[/size][size=22]\nHydrogen[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_normal = '', background_color = determineColor(0))
             b.bind(on_press= app.callback)
             self.add_widget(b)
             for i in range(16):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
-            b = Button(text = "[size=30]2[/size]\n[size=50]He[/size][size=22]\nHelium[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_color = determineColor(1))
+            b = Button(text = "[size=30]2[/size]\n[size=50]He[/size][size=22]\nHelium[/size]", markup = True, halign = "center", size_hint = (None,None), size = (button_size,button_size), background_normal = '', background_color = determineColor(1))
             b.bind(on_press= app.callback)
             self.add_widget(b)
             for i in range(2,4):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(4,10):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10,12):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(10):
                 l = Label(text = "", size_hint = (None,None), size = (button_size,button_size))
                 self.add_widget(l)
             for i in range(12,18):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(18,56):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             b = Button(text = "[size=22]Lanthanides[/size]", markup = True, size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(57))
@@ -101,7 +101,7 @@ class MainBody(GridLayout):
             # open up menu for lanthanides
             self.add_widget(b)
             for i in range(71,88):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             b = Button(text = "[size=22]Actinides[/size]", markup = True, size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(89))
@@ -109,7 +109,7 @@ class MainBody(GridLayout):
             # open up menu for actinides
             self.add_widget(b)
             for i in range(103,118):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             for i in range(18):
@@ -119,7 +119,7 @@ class MainBody(GridLayout):
                 l = Label(text = "", size_hint = (None,None), size = (button_size, button_size))
                 self.add_widget(l)
             for i in range(56,71):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
             l = Label(text="", size_hint=(None, None), size=(button_size, button_size))
@@ -128,7 +128,7 @@ class MainBody(GridLayout):
                 l = Label(text = "", size_hint = (None,None), size = (button_size, button_size))
                 self.add_widget(l)
             for i in range(88,103):
-                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_color = determineColor(i))
+                b = Button(text="[size=30]{}[/size]\n[size=50]{}[/size][size=22]\n{}[/size]".format(elements[i]["number"],elements[i]["symbol"],elements[i]["name"]), markup = True, halign = "center", size_hint=(None, None), size=(button_size, button_size), background_normal = '', background_color = determineColor(i))
                 b.bind(on_press= app.callback)
                 self.add_widget(b)
 
