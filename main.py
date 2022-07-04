@@ -160,30 +160,35 @@ class Legend(FloatLayout):
 
         self.draw()
 
-    def draw(self):
+    def addFamilyLabel(self, text, index, background_color):
+        font_size = 27
+        size_hint = (None, None)
+
         self.block_space = 145 if Window.size[0] < Window.size[1] else 200
         self.width = 1490 if Window.size[0] < Window.size[1] else 2040
         self.init_buffer = 20 if Window.size[0] < Window.size[1] else 69
-        b = Button(text = "Alkali\nMetals", size_hint = (None, None), size = (125,125), pos = (self.init_buffer,37.5), background_color = determineColor(2), halign = "center", font_size = 27)
-        self.add_widget(b)
-        b = Button(text = "Alkaline\nEarth", size_hint = (None, None), size = (125,125), pos = (self.init_buffer + 1 *self.block_space,37.5), background_color = determineColor(3), halign = "center", font_size = 27)
-        self.add_widget(b)
-        b = Button(text="Transition\nMetal", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 2 *self.block_space,37.5), background_color=determineColor(20), halign="center", font_size=27)
-        self.add_widget(b)
-        b = Button(text="Metalloid", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 3 *self.block_space,37.5), background_color=determineColor(4), halign="center", font_size=27)
-        self.add_widget(b)
-        b = Button(text="Post\ntransition\nMetal", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 4 *self.block_space,37.5), background_color=determineColor(12), halign="center", font_size=27)
-        self.add_widget(b)
-        b = Button(text="Nonmetal", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 5 *self.block_space,37.5), background_color=determineColor(0), halign="center", font_size=27)
-        self.add_widget(b)
-        b = Button(text="Halogen", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 6 *self.block_space,37.5), background_color=determineColor(8), halign="center", font_size=27)
-        self.add_widget(b)
-        b = Button(text="Noble\ngas", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 7 *self.block_space,37.5), background_color=determineColor(1), halign="center", font_size=27)
-        self.add_widget(b)
-        b = Button(text="Lanthanide", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 8 *self.block_space,37.5), background_color=determineColor(56), halign="center", font_size=27)
-        self.add_widget(b)
-        b = Button(text="Actinide", size_hint=(None, None), size=(125, 125), pos = (self.init_buffer + 9 *self.block_space,37.5), background_color=determineColor(88), halign="center", font_size=27)
-        self.add_widget(b)
+
+        l = Label(text= text, size_hint = size_hint,  size = (125,125), pos = (self.init_buffer + index * self.block_space, 37.5), halign = "center", font_size = 27)
+
+        with l.canvas.before:
+            #print(bc[0]*255,bc[1]*255,bc[2]*255, bc[3])
+            Color(background_color[0], background_color[1], background_color[2], background_color[3], mode='rgba')
+            Rectangle(pos=l.pos, size=l.size)
+
+        self.add_widget(l)
+
+    def draw(self):
+        self.addFamilyLabel("Alkali\nMetals", 0, determineColor(2))
+        self.addFamilyLabel("Alkaline\nEarth", 1, determineColor(3))
+        self.addFamilyLabel("Transition\nMetal", 2, determineColor(20))
+        self.addFamilyLabel("Metalloid", 3, determineColor(4))
+        self.addFamilyLabel("Post\ntransition\nMetal", 4, determineColor(12))
+        self.addFamilyLabel("Nonmetal", 5, determineColor(0))
+        self.addFamilyLabel("Halogen", 6, determineColor(8))
+        self.addFamilyLabel("Noble\ngas", 7, determineColor(1))
+        self.addFamilyLabel("Lanthanide", 8, determineColor(56))
+        self.addFamilyLabel("Actinide",9 , determineColor(88))
+
 
 light_gray = (200/255,200/255,200/255,1)
 
