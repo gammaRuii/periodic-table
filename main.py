@@ -259,23 +259,40 @@ class PeriodicTableApp(App):
                 elementNum = str(seriesDict.get(elementNum))
             # print(elementNum)
             try:
-                elnum = int(elementNum[:3]) - 1
-                self.root.get_screen("element").ids["symbutton2"].text = elements[elnum]["symbol"]
-                self.root.get_screen("element").ids["symbutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["namebutton2"].text = "[b]" + elements[elnum]["name"] + "[/b]"
-                self.root.get_screen("element").ids["namebutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["catbutton2"].text = elements[elnum]["category"].capitalize()
-                self.root.get_screen("element").ids["catbutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["numbutton2"].text = str(elnum + 1)
-                self.root.get_screen("element").ids["numbutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["aaabutton2"].text = str(float(elements[elnum]["atomic_mass"]))
-                self.root.get_screen("element").ids["aaabutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["econfigbutton2"].text = elements[elnum][
-                    "electron_configuration_semantic"]
-                self.root.get_screen("element").ids["econfigbutton2"].background_color = determineColor(elnum)
-                self.root.get_screen("element").ids["sumbutton2"].text = textwrap.fill(elements[elnum]["summary"], width=self.textWidth)
-                self.root.get_screen("element").ids["sumbutton2"].background_color = determineColor(elnum)
                 self.root.current = "element"
+                elnum = int(elementNum[:3]) - 1
+                background_color = determineColor(elnum)
+
+                symbutton2 = self.root.get_screen("element").ids["symbutton2"]
+                symbutton2.text = elements[elnum]["symbol"]
+                symbutton2.background_color = background_color
+
+                namebutton2 = self.root.get_screen("element").ids["namebutton2"]
+                namebutton2.text = "[b]" + elements[elnum]["name"] + "[/b]"
+                namebutton2.background_color = background_color
+
+                catbutton2 = self.root.get_screen("element").ids["catbutton2"]
+                catbutton2.text = elements[elnum]["category"].capitalize()
+                catbutton2.background_color = background_color
+
+                numbutton2 = self.root.get_screen("element").ids["numbutton2"]
+                numbutton2.text = str(elnum + 1)
+                numbutton2 .background_color = background_color
+
+                aaabutton2 = self.root.get_screen("element").ids["aaabutton2"]
+                aaabutton2.text = str(float(elements[elnum]["atomic_mass"]))
+                aaabutton2.background_color = background_color
+
+                econfigbutton2 = self.root.get_screen("element").ids["econfigbutton2"]
+                econfigbutton2.text = elements[elnum]["electron_configuration_semantic"]
+                econfigbutton2.background_color = background_color
+
+                sumbutton2 = self.root.get_screen("element").ids["sumbutton2"]
+                sumbutton2.text = textwrap.fill(elements[elnum]["summary"], width=self.textWidth)
+                sumbutton2.background_color = background_color
+
+                self.root.current = "element"
+                
             except ValueError:
                 elnum = 1
                 if elementNum == "Lanthanides":

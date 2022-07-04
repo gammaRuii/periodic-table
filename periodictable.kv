@@ -42,13 +42,28 @@ Manager:
         orientation: "vertical"
 
         cols: 1
-        Button:
+        Label:
             id: namebutton2
+            background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
             size_hint: 1, 0.2
             font_size: 100
             markup: True
-        Button:
+            
+        Label:
             id: sumbutton2
+            background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
             halign: "center"
             font_size: 35
             size_hint: 1, 0.45
@@ -59,28 +74,93 @@ Manager:
             Label:
                 text: "Atomic number"
                 background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 id: numbutton2
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 text: "Symbol"
                 background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 id: symbutton2
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 text: "Category"
                 background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 id: catbutton2
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 text: "Average atomic mass"
                 background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 id: aaabutton2
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 text: "Electron configuration"
                 background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
             Label:
                 id: econfigbutton2
+                background_color: (0/255.0, 206/255.0, 235/255.0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
 
         Button:
             text: "Back"
